@@ -1,22 +1,21 @@
-import './App.css';
-
 import { Route } from 'react-router-dom';
 import { Routes } from 'react-router-dom';
 
 import Home from './pages/Home';
-import RootLayout from './components/RootLayout';
-import SigninForm from './components/SigninForm';
-import SingupForm from './components/SingupForm';
-import AuthLayout from './components/AuthLayout';
+import RootLayout from './_root/RootLayout/RootLayout';
+import SigninForm from './_auth/forms/SigninForm';
+import SignupForm from './_auth/forms/SignupForm';
+import AuthLayout from './_auth/AuthLoyout';
 import Library from './pages/Library';
 import Reading from './pages/Reading';
+import './style/globalStyles.ts';
 
 const App = () => {
   return (
     <Routes>
       <Route element={<AuthLayout />}>
         <Route path="/sign-in" element={<SigninForm />} />
-        <Route path="/sign-up" element={<SingupForm />} />
+        <Route path="/sign-up" element={<SignupForm />} />
       </Route>
       <Route path="/" element={<RootLayout />}>
         <Route index element={<Home />} />
