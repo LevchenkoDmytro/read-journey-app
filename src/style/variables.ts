@@ -5,7 +5,8 @@ export const COLORS = {
   MIDDLE_GRAY: '#262626',
   DARK_GRAY: '#1F1F1F',
   BLUE: '#4F92F7',
-  GREEN: '#4F92F7',
+  GREEN: '#30b94d',
+  RED: '#e90516',
 };
 
 export const SIZES = {

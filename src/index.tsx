@@ -3,17 +3,20 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { GlobalStyles } from '@mui/system';
-import commonStyle from './style/commonStyle';
+import globalStyles from './style/globalStyles';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
 root.render(
   <React.StrictMode>
-    <GlobalStyles styles={commonStyle}>
+    <GlobalStyles styles={globalStyles} />
+    <Provider store={store}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </GlobalStyles>
+    </Provider>
   </React.StrictMode>,
 );
