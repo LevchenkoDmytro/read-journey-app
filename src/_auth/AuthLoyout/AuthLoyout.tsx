@@ -1,6 +1,6 @@
 import img from '../../assets/iPhone.webp';
 import Logo from '../../components/Logo';
-import { Outlet } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 import {
   Container,
   FormSection,
@@ -11,9 +11,14 @@ import {
   Title,
   Wrapper,
 } from './styled';
+import { useAppSelector } from '../../hooks/reduxHooks';
 
 const AuthLoyout = () => {
-  return (
+  const isLogin = useAppSelector(state => state.auth.isLogin);
+
+  return isLogin ? (
+    <Navigate to={'/'} />
+  ) : (
     <Container>
       <Wrapper>
         <FormSection>

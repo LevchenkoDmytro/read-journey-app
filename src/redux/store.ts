@@ -14,12 +14,12 @@ import storage from 'redux-persist/lib/storage';
 // import { modalSliceReducer } from './modalSlice';
 // import { booksSliceReducers } from './booksSlice/booksSlice';
 // import { filtersSliceReducers } from './filtersSlice';
-import { authSliceReducer } from './authSlice';
+import { authSliceReducer } from './auth/authSlice';
 
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['refreshToken', 'name', 'token'],
+  whitelist: ['refreshToken', 'name', 'token', 'isLogin'],
 };
 
 const persistedReducer = persistReducer(authPersistConfig, authSliceReducer);

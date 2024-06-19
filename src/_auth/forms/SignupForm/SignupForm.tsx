@@ -18,9 +18,9 @@ import {
   emailValidation,
   passwordValidation,
 } from '../../../constants/validation';
-import { showSuccessNotification, showErrorNotification } from './helpers';
+import { showSuccessNotification, showErrorNotification } from '../helpers';
 import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
-import { registerUserThunk } from '../../../redux/authSlice';
+import { registerUserThunk } from '../../../redux/auth/thunk';
 
 const SignupForm = () => {
   const dispatch = useAppDispatch();
@@ -56,6 +56,7 @@ const SignupForm = () => {
           validation={nameValidation}
           errors={errors}
           value={watch('name')}
+          placeholder="Name"
         />
 
         <StandardInput
@@ -64,6 +65,7 @@ const SignupForm = () => {
           validation={emailValidation}
           errors={errors}
           value={watch('email')}
+          placeholder="Email"
         />
 
         <PasswordInput
@@ -72,6 +74,7 @@ const SignupForm = () => {
           validation={passwordValidation}
           errors={errors}
           value={watch('password')}
+          placeholder="Password"
         />
       </InputsWrapper>
       <WrapperButton>
