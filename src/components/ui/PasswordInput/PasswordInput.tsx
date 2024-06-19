@@ -10,6 +10,7 @@ const PasswordInput = ({
   validation,
   errors,
   value,
+  placeholder
 }: StandardInputProps) => {
   const [isShowPassword, setIsShowPassword] = useState(false);
 
@@ -23,6 +24,7 @@ const PasswordInput = ({
         validation={validation}
         errors={errors}
         value={value}
+        placeholder={placeholder }
       />
 
       {!value ? null : (

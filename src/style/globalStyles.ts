@@ -28,9 +28,6 @@ const globalStyles = {
     boxSizing: 'border-box',
     color: `${COLORS.WHITE}`,
   },
-  body: {
-    backgroundColor: `${COLORS.BLACK}`,
-  },
   ul: {
     padding: 0,
     listStyle: 'none',

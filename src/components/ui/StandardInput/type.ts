@@ -6,4 +6,5 @@ export interface StandardInputProps {
   register: UseFormRegister<any>;
   errors: FieldErrors;
   value: string;
+  placeholder: string;
 }

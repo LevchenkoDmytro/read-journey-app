@@ -8,8 +8,8 @@ const StandardInput = ({
   validation,
   errors,
   value,
+  placeholder
 }: StandardInputProps) => {
-  const placeholder = type[0].toUpperCase() + type.slice(1);
 
   return (
     <Wrapper>

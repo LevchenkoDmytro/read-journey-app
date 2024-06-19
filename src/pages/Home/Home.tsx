@@ -1,11 +1,7 @@
 // import {  } from './styled';
 
 const Home = () => {
-  return (
-    <>
-      <p>Home</p>
-    </>
-  );
+  return <>Home</>;
 };
 
 export default Home;
