@@ -1,23 +1,25 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import { Routes } from 'react-router-dom';
 import Fallback from './components/Fallback';
 import setUpInterceptors from './api/helpers/interceptors';
-import { useStore } from 'react-redux';
+import store from './redux/store';
+import './styles/fonts/fonts.css';
 
-const RootLayout = lazy(() => import('./_root/RootLayout'));
-const AuthLayout = lazy(() => import('./_auth/AuthLoyout'));
+const RootLayout = lazy(() => import('./components/Loyouts/RootLayout'));
+const AuthLayout = lazy(() => import('./components/Loyouts/AuthLoyout'));
 const Home = lazy(() => import('./pages/Home'));
 const Library = lazy(() => import('./pages/Library'));
 const Reading = lazy(() => import('./pages/Reading'));
-const SigninForm = lazy(() => import('./_auth/forms/SigninForm'));
-const SignupForm = lazy(() => import('./_auth/forms/SignupForm'));
+const SigninForm = lazy(() => import('./components/Forms/AuthForm/SigninForm'));
+const SignupForm = lazy(() => import('./components/Forms/AuthForm/SignupForm'));
 
-import './style/globalStyles.ts';
+import './styles/globalStyles.ts';
 
 const App = () => {
-  const store = useStore();
-  setUpInterceptors(store);
+  useEffect(() => {
+    setUpInterceptors(store);
+  }, []);
 
   return (
     <Suspense fallback={<Fallback />}>

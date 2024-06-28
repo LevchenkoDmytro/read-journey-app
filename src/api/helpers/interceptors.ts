@@ -1,7 +1,11 @@
-import { instance } from '../books';
+import { instance } from './instance';
 import { refreshTokenThunk } from '../../redux/auth/thunk';
+import { RootState, AppDispatch } from '../../redux/store';
 
-const setUpInterceptors = (store: any) => {
+const setUpInterceptors = (store: {
+  getState: () => RootState;
+  dispatch: AppDispatch;
+}) => {
   instance.interceptors.request.use(
     async config => {
       const state = store.getState();

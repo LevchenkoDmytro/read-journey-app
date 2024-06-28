@@ -1,9 +1,8 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import { GlobalStyles } from '@mui/system';
-import globalStyles from './style/globalStyles';
+import globalStyles from './styles/globalStyles';
+import { Global } from '@emotion/react';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 
@@ -11,12 +10,10 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
 root.render(
-  <React.StrictMode>
-    <GlobalStyles styles={globalStyles} />
-    <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <Global styles={globalStyles} />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
 );

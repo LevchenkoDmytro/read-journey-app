@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { COLORS, SIZES } from '../../style/variables';
+import { COLORS, SIZES } from '../../styles/theme';
 
 export const LogoWrapper = styled.div`
   display: flex;

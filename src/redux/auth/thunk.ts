@@ -4,29 +4,22 @@ import {
   loginUser,
   logoutUser,
   refreshToken,
-} from '../../api/books';
+} from '../../api/auth';
 import { handlerError } from '../helpers';
-import { IUserInfo } from '../../types/data';
+import { IRegistrationInfo, ILoginInfo } from '../../types/data';
+import { RootState } from '../store';
 
-export const registerUserThunk = createAsyncThunk<any, IUserInfo>(
+export const registerUserThunk = createAsyncThunk(
   'auth/register',
-  async (userInfo, { rejectWithValue }) => {
-    try {
-      return await registerUser(userInfo);
-    } catch (error) {
-      return handlerError(error, rejectWithValue);
-    }
+  async (userInfo: IRegistrationInfo) => {
+    return await registerUser(userInfo);
   },
 );
 
 export const loginUserThunk = createAsyncThunk(
   'auth/login',
-  async (userInfo: any, { rejectWithValue }) => {
-    try {
-      return await loginUser(userInfo);
-    } catch (error) {
-      return handlerError(error, rejectWithValue);
-    }
+  async (userInfo: ILoginInfo) => {
+    return await loginUser(userInfo);
   },
 );
 
@@ -44,7 +37,7 @@ export const logoutUserThunk = createAsyncThunk(
 export const refreshTokenThunk = createAsyncThunk(
   'auth/refresh',
   async (_, thunkApi) => {
-    const state = thunkApi.getState() as any;
+    const state = thunkApi.getState() as RootState;
     const token = state.auth.refreshToken;
 
     if (!token) {
