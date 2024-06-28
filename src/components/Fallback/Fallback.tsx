@@ -3,13 +3,11 @@ import svg from '../../assets/sprite.svg';
 
 const Fallback = () => {
   return (
-    <>
-      <Wrapper>
-        <svg>
-          <use href={svg + '#icon-logo'}></use>
-        </svg>
-      </Wrapper>
-    </>
+    <Wrapper>
+      <svg>
+        <use href={svg + '#icon-logo'}></use>
+      </svg>
+    </Wrapper>
   );
 };
 

@@ -1,3 +1,5 @@
+import { IState } from "./types";
+
 export const initialState: IState = {
   name: '',
   token: '',
@@ -7,11 +9,4 @@ export const initialState: IState = {
   error: '',
 };
 
-interface IState {
-  name: string;
-  token: string;
-  refreshToken: string;
-  isLogin: boolean;
-  isLoading: boolean;
-  error: string;
-}
+
