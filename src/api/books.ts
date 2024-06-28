@@ -1,41 +1,29 @@
-import axios, { AxiosInstance } from 'axios';
-import { IUserInfo } from '../types/data';
+import { instance } from './helpers/instance';
 
-export const instance: AxiosInstance = axios.create({
-  baseURL: 'https://readjourney.b.goit.study/api/',
-  headers: {
-    Accept: 'application/json',
-    'Content-type': 'application/json',
-  },
-});
-
-export const setAuthHeader = (token: string) => {
-  instance.defaults.headers.common.Authorization = `Bearer ${token}`;
+export const getRecommendedBooks = async (
+  author: string,
+  title: string,
+  currentPage: number,
+) => {
+  const { data } = await instance(
+    `books/recommend?author=${author}&title=${title}&page=${currentPage}`,
+  );
+  return { author, title, data };
 };
 
-const clearAuthHeader = () => {
-  instance.defaults.headers.common.Authorization = '';
+export const getLibraryBooks = async () => {
+  const { data } = await instance(`books/own`);
+  return data.reverse();
 };
 
-export const registerUser = async (userInfo: IUserInfo) => {
-  const { data } = await instance.post('users/signup', userInfo);
+export const addBook = async (id: string) => {
+  const { data } = await instance.post(`books/add/${id}`, {
+    id,
+  });
   return data;
 };
 
-export const loginUser = async (userInfo: any) => {
-  const { data } = await instance.post('users/signin', userInfo);
-  setAuthHeader(data.token);
-  return data;
-};
-
-export const logoutUser = async () => {
-  await instance.post('users/signout');
-  clearAuthHeader();
-};
-
-export const refreshToken = async () => {
-  const { data } = await instance.get('users/current/refresh');
-  const newToken = data.token;
-  setAuthHeader(newToken);
+export const deleteBook = async (id: string) => {
+  const { data } = await instance.delete(`books/remove/${id}`);
   return data;
 };

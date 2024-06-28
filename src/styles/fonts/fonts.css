@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src:
+    url('./Gilroy-Bold.ttf') format('truetype'),
+    url('./Gilroy-Bold.eot') format('embedded-opentype'),
+    url('./Gilroy-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src:
+    url('./Gilroy-Medium.ttf') format('truetype'),
+    url('./Gilroy-Medium.eot') format('embedded-opentype'),
+    url('./Gilroy-Medium.woff') format('woff');
+}

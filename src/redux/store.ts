@@ -10,11 +10,8 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-
-// import { modalSliceReducer } from './modalSlice';
-// import { booksSliceReducers } from './booksSlice/booksSlice';
-// import { filtersSliceReducers } from './filtersSlice';
-import { authSliceReducer } from './auth/authSlice';
+import { booksSliceReducers } from './books/slice';
+import { authSliceReducer } from './auth/slice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -26,9 +23,7 @@ const persistedReducer = persistReducer(authPersistConfig, authSliceReducer);
 
 const store = configureStore({
   reducer: {
-    // modal: modalSliceReducer,
-    // books: booksSliceReducers,
-    // filters: filtersSliceReducers,
+    books: booksSliceReducers,
     auth: persistedReducer,
   },
   middleware: getDefaultMiddleware =>
