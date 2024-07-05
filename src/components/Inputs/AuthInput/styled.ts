@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import StyledInput from '../StyledInput';
-import { COLORS } from '../../../styles/theme';
+import { COLORS, SIZES } from '../../../styles/theme';
 
 export const Wrapper = styled.div`
   position: relative;
@@ -22,9 +22,9 @@ export const Input = styled(StyledInput)`
 
 export const ErrorText = styled.p`
   margin-top: 4px;
-  color: #e90516;
-  font-size: 12px;
-  line-height: 14px;
+  color: ${COLORS.RED};
+  font-size: ${SIZES.FONT.SMALL};
+  line-height: ${SIZES.LINE_HEIGHT.LH16};
 `;
 
 const InputIcon = styled.svg`

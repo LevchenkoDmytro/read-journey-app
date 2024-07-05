@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
-import StandardInput from '../../../Inputs/StandardInput';
+import AuthInput from '../../../Inputs/AuthInput';
 import PasswordInput from '../../../Inputs/PasswordInput';
 import {
   Form,
@@ -12,7 +12,7 @@ import {
   CircularProgressStyle,
 } from './styled';
 
-import { IRegistrationInfo } from '../../../../types/data';
+import { IUserInfo } from '../../../../types/data';
 import {
   nameValidation,
   emailValidation,
@@ -20,7 +20,6 @@ import {
 } from '../../../../helpers/validation';
 import { useAppDispatch, useAppSelector } from '../../../../hooks/reduxHooks';
 import { registerUserThunk } from '../../../../redux/auth/thunk';
-import { handlerError } from '../helpers';
 
 const SignupForm = () => {
   const dispatch = useAppDispatch();
@@ -32,25 +31,23 @@ const SignupForm = () => {
     handleSubmit,
     formState: { errors, isValid },
     watch,
-  } = useForm<IRegistrationInfo>({
+  } = useForm<IUserInfo>({
     mode: 'onChange',
+    defaultValues: {
+      name: 'adsfsdfsfsf',
+      email: 'kaka2132424W@i.ua',
+      password: '1234567',
+    },
   });
 
-  const submit = (userInfo: IRegistrationInfo) => {
-    dispatch(registerUserThunk(userInfo))
-      .unwrap()
-      .then(() => {
-        navigate('/sign-in');
-      })
-      .catch(error => {
-        handlerError(error);
-      });
+  const submit = (userInfo: IUserInfo) => {
+    dispatch(registerUserThunk({ userInfo, navigate }));
   };
 
   return (
     <Form onSubmit={handleSubmit(submit)}>
       <InputsWrapper>
-        <StandardInput
+        <AuthInput
           type="name"
           register={register}
           validation={nameValidation}
@@ -59,7 +56,7 @@ const SignupForm = () => {
           placeholder="Name"
         />
 
-        <StandardInput
+        <AuthInput
           type="email"
           register={register}
           validation={emailValidation}

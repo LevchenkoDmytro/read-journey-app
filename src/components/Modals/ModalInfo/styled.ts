@@ -15,6 +15,9 @@ export const Img = styled.img`
 `;
 
 export const PlaceholderWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 137px;
   height: 208px;
 `;
@@ -32,7 +35,7 @@ export const Title = styled.h4`
 `;
 
 export const Author = styled.p`
-  font-size: 14px;
+  font-size: ${SIZES.FONT.SMALL};
   line-height: ${SIZES.LINE_HEIGHT.LH18};
   font-weight: ${SIZES.WEIGHT.W500};
   color: ${COLORS.LIGHT_GRAY};
@@ -40,7 +43,7 @@ export const Author = styled.p`
 `;
 
 export const TotalPages = styled.p`
-  font-size: 10px;
+  font-size: ${SIZES.FONT.EXTRA_SMALL};
   line-height: ${SIZES.LINE_HEIGHT.LH12};
   margin-top: 4px;
   margin-bottom: 32px;

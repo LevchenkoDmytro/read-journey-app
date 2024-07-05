@@ -6,7 +6,7 @@ import Modal from '../Modal';
 import StyledButton from '../../StyledButton';
 import {
   getLibraryBooksThunk,
-  addBookThunk,
+  addBookByIdThunk,
   deleteBookThunk,
 } from '../../../redux/books/thunk';
 import { IHomeModal } from './types';
@@ -27,7 +27,7 @@ const HomeModal: FC<IHomeModal> = ({
     const bookId = currentBook?._id;
 
     if (bookId) {
-      dispatch(addBookThunk(bookId));
+      dispatch(addBookByIdThunk(bookId));
     } else {
       Notiflix.Notify.failure(     
         'Sorry, it is not possible to add a book to the library at the moment',

@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import { logoutUserThunk } from '../../../redux/auth/thunk';
 
 import {
-  NavBar,
+  Header,
   LinkWrapper,
   StyledNavLink,
   MainWrapper,
@@ -40,7 +40,7 @@ const RootLayout = () => {
         <Navigate to={'/sign-in'} />
       ) : (
         <Container>
-          <NavBar>
+          <Header>
             <Logo />
             <LinkWrapper>
               <StyledNavLink to={'/'}>Home</StyledNavLink>
@@ -57,7 +57,7 @@ const RootLayout = () => {
                 <StyledButton onClick={heandlerLogout}>Log out</StyledButton>
               </LogOutWrapper>
             </UserWrapper>
-          </NavBar>
+          </Header>
           <MainWrapper>
             <Suspense fallback={<>loading</>}>
               <Outlet />

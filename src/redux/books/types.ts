@@ -9,7 +9,7 @@ export interface IState {
 }
 
 export interface getRecommendedBooksParams {
-  currentPage?: number;
-  author?: string;
-  title?: string;
+  currentPage: number;
+  author: string;
+  title: string;
 }
