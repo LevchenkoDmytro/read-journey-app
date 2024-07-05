@@ -6,10 +6,16 @@ import {
   Author,
   PlaceholderWrapper,
   PlaceholderImg,
+  LowerWrapper,
+  Icon,
 } from './styled';
 
+import { deleteBookThunk } from '../../redux/books/thunk';
+import { useAppDispatch } from '../../hooks/reduxHooks';
+
 import { IListCard } from './types';
-import png from '../../assets/open-book.png';
+import png from '../../assets/placeholderBook.png';
+import svg from '../../assets/sprite.svg';
 
 const ListCard: FC<IListCard> = ({
   _id,
@@ -17,7 +23,10 @@ const ListCard: FC<IListCard> = ({
   title,
   author,
   handlerClick,
+  recommend,
 }) => {
+  const dispatch = useAppDispatch();
+
   return (
     <Wrapper>
       {imageUrl ? (
@@ -27,8 +36,15 @@ const ListCard: FC<IListCard> = ({
           <PlaceholderImg src={png} alt="book" />
         </PlaceholderWrapper>
       )}
-      <Title>{title}</Title>
-      <Author>{author}</Author>
+      <LowerWrapper recommend={recommend}>
+        <Title>{title}</Title>
+        <Author>{author}</Author>
+        {!recommend ? (
+          <Icon onClick={() => dispatch(deleteBookThunk(_id))}>
+            <use href={svg + '#icon-styledTrash'}></use>
+          </Icon>
+        ) : null}
+      </LowerWrapper>
     </Wrapper>
   );
 };

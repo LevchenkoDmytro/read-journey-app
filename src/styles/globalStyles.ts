@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { COLORS } from './theme';
+import { COLORS, SIZES } from './theme';
 
 const globalStyles = css`
   * {
@@ -31,6 +31,16 @@ const globalStyles = css`
 
   input {
     padding: 0;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    border: none;
+    -webkit-text-fill-color: ${COLORS.WHITE};
+    -webkit-box-shadow: none;
+    transition: background-color 5000s ease-in-out 0s;
+    caret-color: ${COLORS.WHITE};
   }
 
   h1 {

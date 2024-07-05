@@ -1,20 +1,19 @@
 import { Wrapper, Input, ErrorText, ErrorIcon, SuccessIcon } from './styled';
 import svg from '../../../assets/sprite.svg';
-import { StandardInputProps } from './types';
+import { IAuthInputProps } from './types';
 
-const StandardInput = ({
+const AuthInput = ({
   register,
   type,
   validation,
   errors,
   value,
   placeholder,
-}: StandardInputProps) => {
+}: IAuthInputProps) => {
   return (
     <Wrapper>
       <Input
         disableUnderline
-        autoComplete={'off'}
         type={type}
         placeholder={placeholder}
         {...register(type, validation)}
@@ -37,4 +36,4 @@ const StandardInput = ({
   );
 };
 
-export default StandardInput;
+export default AuthInput;

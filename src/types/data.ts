@@ -7,13 +7,7 @@ export interface IBookObj {
   _id: string;
 }
 
-export interface IRegistrationInfo {
-  name: string;
-  password: string;
-  email: string;
-}
-
-export interface ILoginInfo {
+export interface IUserInfo {
   name: string;
   password: string;
   email: string;

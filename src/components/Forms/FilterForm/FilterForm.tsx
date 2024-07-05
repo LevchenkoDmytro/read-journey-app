@@ -14,7 +14,6 @@ const FilterForm: FC<IFilterFormProps> = ({ currentPage, setCurrentPage }) => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const { register, reset, handleSubmit } = useForm<IFilterForm>();
-  const firstPage = 1;
 
   useEffect(() => {
     dispatch(getRecommendedBooksThunk({ currentPage, author, title }));
@@ -23,13 +22,13 @@ const FilterForm: FC<IFilterFormProps> = ({ currentPage, setCurrentPage }) => {
   const submitForm = async (data: IFilterForm) => {
     setTitle(data.title);
     setAuthor(data.author);
-    setCurrentPage(firstPage);
+    setCurrentPage(1);
   };
 
   const resetForm = () => {
     setTitle('');
     setAuthor('');
-    setCurrentPage(firstPage);
+    setCurrentPage(1);
     reset();
   };
 

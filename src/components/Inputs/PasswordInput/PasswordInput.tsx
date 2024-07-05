@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import StandardInput from '../StandardInput';
-import { StandardInputProps } from '../StandardInput/types';
+import AuthInput from '../AuthInput';
+import { IAuthInputProps } from '../AuthInput/types';
 import { IconWrapper, EyeIcon, EyeOffIcon, Wrapper } from './styled';
 import svg from '../../../assets/sprite.svg';
 
@@ -11,14 +11,14 @@ const PasswordInput = ({
   errors,
   value,
   placeholder,
-}: StandardInputProps) => {
+}: IAuthInputProps) => {
   const [isShowPassword, setIsShowPassword] = useState(false);
 
   const handlerClick = () => setIsShowPassword(state => !state);
 
   return (
     <Wrapper>
-      <StandardInput
+      <AuthInput
         type={type === 'password' && !isShowPassword ? 'password' : 'text'}
         register={register}
         validation={validation}

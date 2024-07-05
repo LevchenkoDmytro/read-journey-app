@@ -42,7 +42,7 @@ export const Wrapper = styled.div`
 export const Container = styled.div`
   max-width: 1246px;
   margin: 0 auto;
-  padding: 15px;
+  padding: 5px 15px;
 `;
 
 export const Span = styled.span`
