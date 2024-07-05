@@ -6,20 +6,32 @@ import {
   refreshToken,
 } from '../../api/auth';
 import { handlerError } from '../helpers';
-import { IRegistrationInfo, ILoginInfo } from '../../types/data';
+import { IRegisterThunkProps } from './types';
 import { RootState } from '../store';
 
 export const registerUserThunk = createAsyncThunk(
   'auth/register',
-  async (userInfo: IRegistrationInfo) => {
-    return await registerUser(userInfo);
+  async ({ userInfo, navigate }: IRegisterThunkProps, { rejectWithValue }) => {
+    try {
+      const result = await registerUser(userInfo);
+      navigate('/sign-in');
+      return result;
+    } catch (error) {
+      return handlerError(error, rejectWithValue);
+    }
   },
 );
 
 export const loginUserThunk = createAsyncThunk(
   'auth/login',
-  async (userInfo: ILoginInfo) => {
-    return await loginUser(userInfo);
+  async ({ userInfo, navigate }: IRegisterThunkProps, { rejectWithValue }) => {
+    try {
+      const result = await loginUser(userInfo);
+      navigate('/');
+      return result;
+    } catch (error) {
+      return handlerError(error, rejectWithValue);
+    }
   },
 );
 

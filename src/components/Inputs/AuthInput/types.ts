@@ -1,6 +1,6 @@
 import { UseFormRegister, FieldErrors } from 'react-hook-form';
 
-export interface StandardInputProps {
+export interface IAuthInputProps {
   type: string;
   validation: Object;
   register: UseFormRegister<any>;

@@ -13,7 +13,7 @@ export const Form = styled.form`
 
 export const InputsWrapper = styled.div`
   & > :not(:first-of-type) {
-    margin-top: 8px;
+    margin-top: 14px;
   }
 `;
 

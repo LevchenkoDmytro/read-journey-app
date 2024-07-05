@@ -17,16 +17,17 @@ const BookList = ({
     setIsShowModal(true);
     setCurrentBook(book);
   };
-
+  
   return (
     <Grid>
-      {books?.map(({ _id, author, imageUrl, title }) => (
+      {books?.map(({ _id, author, imageUrl, title, recommend }) => (
         <ListCard
           key={_id}
           _id={_id}
           imageUrl={imageUrl}
           author={author}
           title={title}
+          recommend={recommend}
           handlerClick={handlerClick}
         />
       ))}

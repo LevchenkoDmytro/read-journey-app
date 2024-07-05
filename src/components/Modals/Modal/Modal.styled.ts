@@ -32,41 +32,8 @@ export const CloseIcon = styled.svg`
   cursor: pointer;
 `;
 
-export const ModalBookCard = styled.div`
-  .modal-book-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .modal-book-img {
-    width: 153px;
-    height: 233px;
-  }
-
-  .modal-book-interface {
-    padding-top: 16px;
-    padding-bottom: 32px;
-  }
-
-  .modal-book-title {
-    font-size: 20px;
-    line-height: 20px;
-  }
-
-  .modal-book-author {
-    font-size: 14px;
-    line-height: 18px;
-  }
-
-  .modal-book-pages {
-    font-size: 10px;
-    line-height: 12px;
-  }
-
-  .book-book-info {
-    max-width: 317px;
-    text-align: center;
-  }
-`;
+// export const IconWrapper = styled.div`
+//   margin-left: auto;
+//   margin-bottom: 12px;
+//   cursor: pointer;
+// `;

@@ -1,12 +1,12 @@
-import { IRegistrationInfo, ILoginInfo } from '../types/data';
+import { IUserInfo} from '../types/data';
 import { instance } from './helpers/instance';
 
-export const registerUser = async (userInfo: IRegistrationInfo) => {
+export const registerUser = async (userInfo: IUserInfo) => {
   const { data } = await instance.post('users/signup', userInfo);
   return data;
 };
 
-export const loginUser = async (userInfo: ILoginInfo) => {
+export const loginUser = async (userInfo: IUserInfo) => {
   const { data } = await instance.post('users/signin', userInfo);
   setAuthHeader(data.token);
   return data;

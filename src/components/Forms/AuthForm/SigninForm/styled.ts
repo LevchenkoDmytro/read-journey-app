@@ -11,7 +11,7 @@ export const Form = styled.form`
 
 export const InputsWrapper = styled.div`
   & > :not(:first-of-type) {
-    margin-top: 8px;
+    margin-top: 14px;
   }
 `;
 
@@ -28,7 +28,7 @@ export const Button = styled(StyledButton)`
   }
 
   &:disabled {
-    color: #686868;
+    color: ${COLORS.LIGHT_GRAY};
     cursor: not-allowed;
     pointer-events: auto;
     background-color: transparent;

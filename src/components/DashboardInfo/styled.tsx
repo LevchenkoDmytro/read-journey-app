@@ -12,6 +12,8 @@ export const InfoBlock = styled.div`
 `;
 
 export const Title = styled.h3`
+  font-size: ${SIZES.FONT.BIG};
+  line-height: ${SIZES.LINE_HEIGHT.LH20};
   margin-bottom: 40px;
 `;
 
@@ -64,7 +66,7 @@ export const QuoteBlock = styled.div`
   gap: 14px;
   border-radius: 12px;
   background-color: ${COLORS.MIDDLE_GRAY};
-  margin-top: 20px;
+  margin-top: 12px;
   padding: 15px 20px 14px;
 `;
 
@@ -77,8 +79,8 @@ export const ArrowRight = styled.svg`
   height: 24px;
 `;
 
-export const Quote =  styled.blockquote`
+export const Quote = styled.blockquote`
   font-size: ${SIZES.FONT.SMALL};
   line-height: ${SIZES.LINE_HEIGHT.LH18};
   color: ${COLORS.LIGHT_GRAY};
-`
+`;

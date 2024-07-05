@@ -2,7 +2,8 @@ import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import {
   getRecommendedBooksThunk,
   getLibraryBooksThunk,
-  addBookThunk,
+  addBookByIdThunk,
+  addBookByFormThunk,
   deleteBookThunk,
 } from './thunk';
 import { initialState } from './initial';
@@ -23,7 +24,8 @@ const booksSlice = createSlice({
     builder
       .addCase(getRecommendedBooksThunk.fulfilled, handlerGetRecommendedBooks)
       .addCase(getLibraryBooksThunk.fulfilled, handlerGetLibraryBooks)
-      .addCase(addBookThunk.fulfilled, handlerAddBook)
+      .addCase(addBookByIdThunk.fulfilled, handlerAddBook)
+      .addCase(addBookByFormThunk.fulfilled, handlerAddBook)
       .addCase(deleteBookThunk.fulfilled, handlerdeleteBook)
       .addMatcher(
         isAnyOf(getRecommendedBooksThunk.pending, getLibraryBooksThunk.pending),
@@ -33,7 +35,7 @@ const booksSlice = createSlice({
         isAnyOf(
           getRecommendedBooksThunk.rejected,
           getLibraryBooksThunk.rejected,
-          addBookThunk.rejected,
+          addBookByIdThunk.rejected,
           deleteBookThunk.rejected,
         ),
         handlerRejected,

@@ -11,6 +11,7 @@ export const COLORS = {
 
 export const SIZES = {
   FONT: {
+    EXTRA_SMALL: '10px',
     SMALL: '14px',
     MEDIUM: '16px',
     REGULAR: '18px',
@@ -28,4 +29,5 @@ export const SIZES = {
     W500: '500',
     W700: '700',
   },
+  SPINNER: '60px',
 };

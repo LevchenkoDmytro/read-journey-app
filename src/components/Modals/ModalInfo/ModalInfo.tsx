@@ -10,7 +10,7 @@ import {
 import { FC } from 'react';
 import { IModalInfo } from './types';
 
-import png from '../../../assets/open-book.png';
+import png from '../../../assets/placeholderBook.png';
 
 const ModalInfo: FC<IModalInfo> = ({ imageUrl, title, author, totalPages }) => {
   return (

@@ -11,7 +11,7 @@ import {
   Title,
   Highlight,
   Text,
-  Quote
+  Quote,
 } from './styled';
 
 import svg from '../../assets/sprite.svg';
@@ -23,11 +23,19 @@ const DashboardInfo = () => (
       <Instructions>
         <InfoWrapper>
           <Circle>1</Circle>
-          <Text>Create a personal library: <Highlight>add the books you intend to read to it.</Highlight></Text>
+          <Text>
+            Create a personal library:{' '}
+            <Highlight>add the books you intend to read to it.</Highlight>
+          </Text>
         </InfoWrapper>
         <InfoWrapper>
           <Circle>2</Circle>
-          <Text> Create your first workout: <Highlight>define a goal, choose a period, start training.</Highlight>
+          <Text>
+            {' '}
+            Create your first workout:{' '}
+            <Highlight>
+              define a goal, choose a period, start training.
+            </Highlight>
           </Text>
         </InfoWrapper>
       </Instructions>

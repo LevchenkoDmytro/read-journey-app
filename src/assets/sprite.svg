@@ -90,5 +90,8 @@
       <path fill="#f9f9f9" style="fill: var(--color2, #f9f9f9)" opacity="0.3"
         d="M0 0h49.333v32h-49.333z"></path>
     </symbol>
+    <symbol id="icon-arrowDown" viewBox="0 0 32 32">
+      <path fill="none" stroke="#f9f9f9" style="stroke: var(--color1, #f9f9f9)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3" d="M8 12l8 8 8-8"></path>
+    </symbol>
   </defs>
 </svg>

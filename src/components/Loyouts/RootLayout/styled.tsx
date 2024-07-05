@@ -6,10 +6,10 @@ import { COLORS, SIZES } from '../../../styles/theme';
 export const Container = styled.div`
   max-width: 1246px;
   margin: 0 auto;
-  padding: 15px;
+  padding: 5px 15px;
 `;
 
-export const NavBar = styled(AppBar)`
+export const Header = styled(AppBar)`
   position: static;
   display: flex;
   flex-direction: row;
@@ -19,6 +19,7 @@ export const NavBar = styled(AppBar)`
   margin-bottom: 16px;
   border-radius: 15px;
   background-color: ${COLORS.DARK_GRAY};
+  box-shadow: none;
 `;
 
 export const LinkWrapper = styled.div`
