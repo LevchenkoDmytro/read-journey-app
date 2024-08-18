@@ -17,7 +17,7 @@ export const nameValidation = {
 export const emailValidation = {
   required: 'Email is required',
   pattern: {
-    value: /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/,
+    value: /^[^\s@]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/,
     message: 'Please enter a valid email',
   },
   minLength: {
