@@ -27,7 +27,7 @@ const LibraryMainSection = () => {
           <Dropdown setCurrentPage={setCurrentPage} />
         </Wrapper>
       </Header>
-      <LibraryContent currentPage={currentPage} booksPerPage={booksPerPage} />
+      <LibraryContent currentPage={currentPage} />
     </>
   );
 };

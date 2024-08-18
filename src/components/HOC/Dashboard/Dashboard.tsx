@@ -6,7 +6,7 @@ interface DashboardProps {
 }
 
 const Dashboard: FC<DashboardProps> = ({ children }) => {
-  return (<Wrapper>{children}</Wrapper>);
+  return <Wrapper>{children}</Wrapper>;
 };
 
 export default Dashboard;

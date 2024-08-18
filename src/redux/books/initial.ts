@@ -1,8 +1,10 @@
 import { IState } from './types';
 
 export const initialState: IState = {
-  items: [],
+  recommendedBooks: [],
   libraryBooks: [],
+  bookInfo: null,
+  readingStatus: 'inactive',
   totalPages: 1,
   isLoading: false,
   error: '',

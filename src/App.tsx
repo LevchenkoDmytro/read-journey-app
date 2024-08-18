@@ -11,8 +11,8 @@ const AuthLayout = lazy(() => import('./components/Loyouts/AuthLoyout'));
 const Home = lazy(() => import('./pages/Home'));
 const Library = lazy(() => import('./pages/Library'));
 const Reading = lazy(() => import('./pages/Reading'));
-const SigninForm = lazy(() => import('./components/Forms/AuthForm/SigninForm'));
-const SignupForm = lazy(() => import('./components/Forms/AuthForm/SignupForm'));
+const SigninForm = lazy(() => import('./components/Forms/SigninForm'));
+const SignupForm = lazy(() => import('./components/Forms/SignupForm'));
 
 import './styles/globalStyles.ts';
 
@@ -32,7 +32,7 @@ const App = () => {
         <Route path="/" element={<RootLayout />}>
           <Route index element={<Home />} />
           <Route path={'/library'} element={<Library />} />
-          <Route path={'/reading :id'} element={<Reading />} />
+          <Route path={'/reading/:id'} element={<Reading />} />
         </Route>
       </Routes>
     </Suspense>

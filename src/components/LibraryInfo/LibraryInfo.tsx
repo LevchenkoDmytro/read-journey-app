@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { useEffect } from 'react';
 
 import {
   Wrapper,
@@ -21,9 +21,12 @@ import { getRecommendedBooksThunk } from '../../redux/books/thunk';
 import svg from '../../assets/sprite.svg';
 import png from '../../assets/placeholderBook.png';
 
-const LibraryInfo: FC = () => {
+const LibraryInfo = () => {
   const dispatch = useAppDispatch();
-  const books = useAppSelector(state => state.books.items)?.slice(0, 3);
+  const books = useAppSelector(state => state.books.recommendedBooks)?.slice(
+    0,
+    3,
+  );
 
   useEffect(() => {
     dispatch(getRecommendedBooksThunk());

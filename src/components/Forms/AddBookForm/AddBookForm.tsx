@@ -40,7 +40,7 @@ const AddBookForm = () => {
         placeholder="The author:"
       />
       {author?.message && <ErrorText>{author?.message}</ErrorText>}
-      
+
       <Input
         {...register('totalPages', validationPages)}
         disableUnderline

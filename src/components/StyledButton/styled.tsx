@@ -11,6 +11,18 @@ const StyledButton = styled(Button)`
   font-weight: ${SIZES.WEIGHT.W700};
   line-height: ${SIZES.LINE_HEIGHT.LH18};
   text-transform: none;
+  cursor: pointer;
+
+  &:disabled {
+    pointer-events: auto;
+    cursor: not-allowed;
+    color: ${COLORS.LIGHT_GRAY};
+  }
+
+  @media (max-width: 576px) {
+    padding: 9px 24px;
+    font-size: ${SIZES.FONT.SMALL};
+  }
 `;
 
 export default StyledButton;

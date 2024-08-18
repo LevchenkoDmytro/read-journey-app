@@ -1,8 +1,19 @@
 import styled from '@emotion/styled';
 import { SIZES, COLORS } from '../../styles/theme';
+import { CircularProgress } from '@mui/material';
 
 export const Wrapper = styled.div`
   position: relative;
+  width: 137px;
+  height: 248px;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+    height: 207px;
+  }
 `;
 
 export const Img = styled.img`
@@ -10,6 +21,11 @@ export const Img = styled.img`
   height: 208px;
   border-radius: 8px;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: 120px;
+    height: 167px;
+  }
 `;
 
 export const PlaceholderWrapper = styled.div`
@@ -19,6 +35,10 @@ export const PlaceholderWrapper = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  @media (max-width: 768px) {
+    width: 120px;
+    height: 167px;
+  }
 `;
 
 export const PlaceholderImg = styled.img``;
@@ -29,6 +49,11 @@ interface LowerWrapperProps {
 
 export const LowerWrapper = styled.div<LowerWrapperProps>`
   width: ${({ recommend }) => (recommend ? '137px' : '105px')};
+  align-self: flex-start;
+
+  @media (max-width: 768px) {
+    width: ${({ recommend }) => (recommend ? '120px' : '90px')};
+  }
 `;
 
 export const Title = styled.h4`
@@ -58,4 +83,10 @@ export const Icon = styled.svg`
   width: 28px;
   height: 28px;
   cursor: pointer;
+`;
+
+export const Spinner = styled(CircularProgress)`
+  position: absolute;
+  bottom: 0;
+  right: 0;
 `;

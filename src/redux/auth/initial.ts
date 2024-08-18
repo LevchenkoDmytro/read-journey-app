@@ -1,4 +1,4 @@
-import { IState } from "./types";
+import { IState } from './types';
 
 export const initialState: IState = {
   name: '',
@@ -8,5 +8,3 @@ export const initialState: IState = {
   isLoading: false,
   error: '',
 };
-
-

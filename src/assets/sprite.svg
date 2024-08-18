@@ -70,7 +70,7 @@
       <path fill="#e90516" style="fill:var(--color3, #e90516)"
         d="M11.52 9.6h8.96c1.06 0 1.92.86 1.92 1.92v8.96c0 1.06-.86 1.92-1.92 1.92h-8.96a1.92 1.92 0 0 1-1.92-1.92v-8.96c0-1.06.86-1.92 1.92-1.92z" />
     </symbol>
-    <symbol id="icon-styledTrash" viewBox="0 0 32 32">
+    <symbol id="icon-redTrash" viewBox="0 0 32 32">
       <path fill="#e85050" style="fill:var(--color4, #e85050)" opacity=".1"
         d="M32 16c0 8.837-7.163 16-16 16S0 24.837 0 16 7.163 0 16 0s16 7.163 16 16z" />
       <path fill="none" stroke="#e85050" style="stroke:var(--color4, #e85050)" stroke-width="1.143"

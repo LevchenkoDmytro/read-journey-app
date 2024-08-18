@@ -12,9 +12,9 @@ import {
 import { IHomeModal } from './types';
 
 const HomeModal: FC<IHomeModal> = ({
-  currentBook,
   setIsShowModal,
   isShowModal,
+  currentBook,
 }) => {
   const dispatch = useAppDispatch();
   const libraryBooks = useAppSelector(state => state.books.libraryBooks);
@@ -24,12 +24,10 @@ const HomeModal: FC<IHomeModal> = ({
   }, []);
 
   const heandlerAddBook = () => {
-    const bookId = currentBook?._id;
-
-    if (bookId) {
-      dispatch(addBookByIdThunk(bookId));
+    if (currentBook?._id) {
+      dispatch(addBookByIdThunk(currentBook?._id));
     } else {
-      Notiflix.Notify.failure(     
+      Notiflix.Notify.failure(
         'Sorry, it is not possible to add a book to the library at the moment',
       );
     }
@@ -43,9 +41,9 @@ const HomeModal: FC<IHomeModal> = ({
     );
 
     if (libraryBook) {
-      dispatch(deleteBookThunk(libraryBook._id)); 
+      dispatch(deleteBookThunk(libraryBook._id));
     } else {
-      Notiflix.Notify.failure(        
+      Notiflix.Notify.failure(
         'Sorry, it is not possible to delete a book to the library at the moment',
       );
     }
@@ -59,9 +57,9 @@ const HomeModal: FC<IHomeModal> = ({
 
   return (
     <Modal
+      currentBook={currentBook}
       isShowModal={isShowModal}
       setIsShowModal={setIsShowModal}
-      currentBook={currentBook}
     >
       {isBookInLibrary ? (
         <StyledButton onClick={heandlerDeleteBook}>

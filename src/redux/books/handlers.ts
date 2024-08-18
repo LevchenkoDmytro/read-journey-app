@@ -1,5 +1,5 @@
 import { PayloadAction } from '@reduxjs/toolkit';
-import { IBookObj } from '../../types/data';
+import { IBook } from '../../redux/books/types';
 import { IState } from './types';
 
 export const handlerPending = (state: IState) => {
@@ -18,7 +18,7 @@ export const handlerGetRecommendedBooks = (
   state: IState,
   { payload }: PayloadAction<any>,
 ) => {
-  state.items = payload?.data?.results;
+  state.recommendedBooks = payload?.data?.results;
   state.totalPages = payload?.data?.totalPages;
   state.isLoading = false;
 };
@@ -43,6 +43,39 @@ export const handlerdeleteBook = (
   { payload }: PayloadAction<any>,
 ) => {
   state.libraryBooks = state.libraryBooks.filter(
-    (book: IBookObj) => book._id !== payload.id,
+    (book: IBook) => book._id !== payload.id,
   );
+};
+
+export const handlerGetBookInfo = (
+  state: IState,
+  { payload }: PayloadAction<any>,
+) => {
+  state.readingStatus = payload.progress?.at(-1)?.status || 'inactive';
+  state.bookInfo = payload;
+  state.isLoading = false;
+};
+
+export const handlerStartReadingBook = (
+  state: IState,
+  { payload }: PayloadAction<any>,
+) => {
+  state.readingStatus = payload.progress?.at(-1)?.status;
+  state.isLoading = false;
+};
+
+export const handlerFinishReadingBook = (
+  state: IState,
+  { payload }: PayloadAction<any>,
+) => {
+  state.readingStatus = payload.progress?.at(-1)?.status;
+  state.bookInfo = payload;
+  state.isLoading = false;
+};
+
+export const handlerDeleteSession = (
+  state: IState,
+  { payload }: PayloadAction<any>,
+) => {
+  state.bookInfo = payload;
 };

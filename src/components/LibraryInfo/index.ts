@@ -1,1 +1,1 @@
-export {default} from './LibraryInfo'
+export { default } from './LibraryInfo';

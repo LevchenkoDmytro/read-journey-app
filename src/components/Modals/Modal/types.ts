@@ -1,9 +1,9 @@
 import { ReactNode } from 'react';
-import { IBookObj } from '../../../types/data';
+import { IBook } from '../../../redux/books/types';
 
 export interface ModalProps {
   children: ReactNode;
-  currentBook: IBookObj | null;
   setIsShowModal: React.Dispatch<React.SetStateAction<boolean>>;
   isShowModal: boolean;
+  currentBook: IBook | null;
 }

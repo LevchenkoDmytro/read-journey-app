@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import {
   Wrapper,
   Img,
@@ -8,6 +8,7 @@ import {
   PlaceholderImg,
   LowerWrapper,
   Icon,
+  Spinner,
 } from './styled';
 
 import { deleteBookThunk } from '../../redux/books/thunk';
@@ -16,6 +17,7 @@ import { useAppDispatch } from '../../hooks/reduxHooks';
 import { IListCard } from './types';
 import png from '../../assets/placeholderBook.png';
 import svg from '../../assets/sprite.svg';
+import { SIZES } from '../../styles/theme';
 
 const ListCard: FC<IListCard> = ({
   _id,
@@ -26,6 +28,17 @@ const ListCard: FC<IListCard> = ({
   recommend,
 }) => {
   const dispatch = useAppDispatch();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const deleteBook = () => {
+    setIsLoading(true);
+
+    dispatch(deleteBookThunk(_id))
+      .unwrap()
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
 
   return (
     <Wrapper>
@@ -40,9 +53,13 @@ const ListCard: FC<IListCard> = ({
         <Title>{title}</Title>
         <Author>{author}</Author>
         {!recommend ? (
-          <Icon onClick={() => dispatch(deleteBookThunk(_id))}>
-            <use href={svg + '#icon-styledTrash'}></use>
-          </Icon>
+          !isLoading ? (
+            <Icon onClick={deleteBook}>
+              <use href={svg + '#icon-redTrash'}></use>
+            </Icon>
+          ) : (
+            <Spinner size={SIZES.SPINNER.SMALL} />
+          )
         ) : null}
       </LowerWrapper>
     </Wrapper>
