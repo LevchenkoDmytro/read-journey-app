@@ -7,4 +7,3 @@ export interface IFilterFormProps {
   currentPage: number;
   setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
 }
- 

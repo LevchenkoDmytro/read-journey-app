@@ -2,6 +2,10 @@ import styled from '@emotion/styled';
 import { COLORS } from '../../styles/theme';
 
 export const Wrapper = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,9 +15,7 @@ export const Wrapper = styled.div`
   width: 274px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 133px;
 `;
-
 
 export const Icon = styled.p`
   font-size: 70px;

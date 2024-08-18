@@ -1,7 +1,7 @@
-import { IBookObj } from '../../../types/data';
+import { IBook } from '../../../redux/books/types';
 
 export interface IHomeModal {
-  currentBook: IBookObj | null;
   isShowModal: boolean;
   setIsShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+  currentBook: IBook | null;
 }

@@ -1,16 +1,12 @@
-import { FC } from 'react';
 import { Wrapper, Icon, CircleOverlay, Text } from './styled';
 
-
-const EmptyLibrary: FC = () => {
+const EmptyLibrary = () => {
   return (
     <Wrapper>
       <CircleOverlay>
-        <Icon>
-          📚
-        </Icon>
+        <Icon>📚</Icon>
       </CircleOverlay>
-      <Text >
+      <Text>
         To start training, add some of your books or from the recommended ones
       </Text>
     </Wrapper>

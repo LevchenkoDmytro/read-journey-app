@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { COLORS, SIZES } from './theme';
+import { COLORS } from './theme';
 
 const globalStyles = css`
   * {
@@ -10,6 +10,10 @@ const globalStyles = css`
   body {
     font-family: 'Gilroy';
     color: ${COLORS.WHITE};
+  }
+
+  h1 {
+    margin: 0;
   }
 
   ul {
@@ -41,10 +45,6 @@ const globalStyles = css`
     -webkit-box-shadow: none;
     transition: background-color 5000s ease-in-out 0s;
     caret-color: ${COLORS.WHITE};
-  }
-
-  h1 {
-    margin: 0;
   }
 
   .MuiCircularProgress-circle {

@@ -9,31 +9,30 @@ export const StyledModal = styled(Modal)`
 `;
 
 export const ModalWrapper = styled.div`
+  position: relative;
   width: 500px;
   height: 483px;
   background-color: ${COLORS.BLACK};
   outline: 0;
   border-radius: 12px;
   border: 1px solid ${COLORS.MIDDLE_GRAY};
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-top: 16px;
   padding-bottom: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding-top: 50px;
+  text-align: center;
+
+  @media (max-width: 576px) {
+    width: 300px;
+    height: 421px;
+    padding-bottom: 40px;
+    padding-top: 40px;
+  }
 `;
 
 export const CloseIcon = styled.svg`
+  position: absolute;
+  top: 16px;
+  right: 16px;
   width: 22px;
   height: 22px;
-  margin-left: auto;
-  margin-bottom: 12px;
   cursor: pointer;
 `;
-
-// export const IconWrapper = styled.div`
-//   margin-left: auto;
-//   margin-bottom: 12px;
-//   cursor: pointer;
-// `;

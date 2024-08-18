@@ -1,1 +1,1 @@
-export {default} from './LibraryMainSection'
+export { default } from './LibraryMainSection';

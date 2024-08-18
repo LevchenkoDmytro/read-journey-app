@@ -22,9 +22,9 @@ const ModalInfo: FC<IModalInfo> = ({ imageUrl, title, author, totalPages }) => {
           <PlaceholderImg src={png} alt="book" />
         </PlaceholderWrapper>
       )}
-        <Title>{title}</Title>
-        <Author>{author}</Author>
-        <TotalPages>{totalPages} pages</TotalPages>
+      <Title>{title}</Title>
+      <Author>{author}</Author>
+      <TotalPages>{totalPages} pages</TotalPages>
     </Wrapper>
   );
 };

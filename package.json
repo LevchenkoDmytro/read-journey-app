@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/babel-plugin": "^11.12.0",
+    "@emotion/serialize": "^1.3.0",
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^5.15.19",
     "@reduxjs/toolkit": "^2.2.5",

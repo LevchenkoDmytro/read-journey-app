@@ -1,1 +1,1 @@
-export { default } from './HomeModal'
+export { default } from './HomeModal';

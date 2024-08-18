@@ -1,50 +1,56 @@
-import { FC } from 'react';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+
+import AuthInput from '../../../components/Inputs/AuthInput';
+import PasswordInput from '../../../components/Inputs/PasswordInput';
 import {
   Form,
   Button,
-  InputsWrapper,
   StyledLink,
   WrapperButton,
+  InputsWrapper,
+  CircularProgressStyle,
 } from './styled';
-import { useAppDispatch } from '../../../../hooks/reduxHooks';
-import { loginUserThunk } from '../../../../redux/auth/thunk';
-import { useForm } from 'react-hook-form';
-import AuthInput from '../../../Inputs/AuthInput';
-import PasswordInput from '../../../Inputs/PasswordInput';
+
+import { IUserInfo } from '../../../types/data';
 import {
+  nameValidation,
   emailValidation,
   passwordValidation,
-} from '../../../../helpers/validation';
-import { IUserInfo } from '../../../../types/data';
-import { useAppSelector } from '../../../../hooks/reduxHooks';
-import { CircularProgress } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+} from '../../../helpers/validation';
+import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
+import { registerUserThunk } from '../../../redux/auth/thunk';
 
-const SigninForm: FC = () => {
+const SignupForm = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-
   const isLoading = useAppSelector(state => state.auth.isLoading);
+
   const {
     register,
-    formState: { errors, isValid },
     handleSubmit,
+    formState: { errors, isValid },
     watch,
   } = useForm<IUserInfo>({
     mode: 'onChange',
-    defaultValues: {
-      email: 'kaka2132424W@i.ua',
-      password: '1234567',
-    },
   });
 
   const submit = (userInfo: IUserInfo) => {
-    dispatch(loginUserThunk({ userInfo, navigate }));
+    dispatch(registerUserThunk({ userInfo, navigate }));
   };
 
   return (
     <Form onSubmit={handleSubmit(submit)}>
       <InputsWrapper>
+        <AuthInput
+          type="name"
+          register={register}
+          validation={nameValidation}
+          errors={errors}
+          value={watch('name')}
+          placeholder="Name"
+        />
+
         <AuthInput
           type="email"
           register={register}
@@ -60,18 +66,17 @@ const SigninForm: FC = () => {
           validation={passwordValidation}
           errors={errors}
           value={watch('password')}
-          placeholder="password"
+          placeholder="Password"
         />
       </InputsWrapper>
-
       <WrapperButton>
         <Button disabled={!isValid || isLoading} type="submit">
-          {isLoading ? <CircularProgress size={30} /> : 'Log In'}
+          {isLoading ? <CircularProgressStyle size={30} /> : 'Registration'}
         </Button>
-        <StyledLink to="/sign-up">Don’t have an account? </StyledLink>
+        <StyledLink to="/sign-in">Already have an account?</StyledLink>
       </WrapperButton>
     </Form>
   );
 };
 
-export default SigninForm;
+export default SignupForm;

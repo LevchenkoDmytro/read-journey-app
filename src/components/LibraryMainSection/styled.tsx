@@ -9,6 +9,12 @@ export const Title = styled.h2`
   margin-bottom: 28px;
   font-size: ${SIZES.FONT.EXTRA_BIG};
   line-height: ${SIZES.LINE_HEIGHT.LH32};
+
+  @media (max-width: 576px) {
+    margin-bottom: 34px;
+    font-size: ${SIZES.FONT.BIG};
+    line-height: ${SIZES.LINE_HEIGHT.LH20};
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -17,5 +23,11 @@ export const Wrapper = styled.div`
 
   & .MuiPagination-root {
     align-self: center;
+  }
+
+  @media (max-width: 576px) {
+    flex-direction: column-reverse;
+    gap: 15px;
+    margin-bottom: 15px;
   }
 `;

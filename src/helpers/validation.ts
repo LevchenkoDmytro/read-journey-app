@@ -39,37 +39,24 @@ export const passwordValidation = {
 };
 
 export const validationPages = {
-  required: 'Input pages is requred',
+  required: 'This field is required.',
   pattern: {
     value: /^(([1-4][0-9]{0,3})|([1-9][0-9]{0,2})|(5000))$/,
     message: 'Value must be a number from 1 to 5000',
   },
 };
 
-export const validationStartPage = (value: string, maxValue: number) => {
-  const parsedValue = parseInt(value, 10);
-  if (isNaN(parsedValue)) {
-    return 'Please enter a valid number.';
-  }
-  if (parsedValue < 1 || parsedValue > maxValue) {
-    return `Please enter a number between 1 and ${maxValue}.`;
-  }
-  return true;
-};
-
-export const validationFinishPage = (
+export const validatePageNumber = (
   value: string,
-  startPage: number,
-  totalPages: number,
+  totalPages: number | undefined,
 ) => {
   const parsedValue = parseInt(value, 10);
-  if (isNaN(parsedValue)) {
+
+  if (isNaN(parsedValue) || parsedValue < 1) {
     return 'Please enter a valid number.';
   }
-  if (parsedValue < startPage || parsedValue > totalPages) {
-    return `Please enter a number between ${startPage} and ${totalPages}.`;
+  if (totalPages && parsedValue > totalPages) {
+    return `You cannot enter a value greater than the number of pages.`;
   }
   return true;
 };
-
-

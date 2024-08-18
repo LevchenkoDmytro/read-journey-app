@@ -14,6 +14,10 @@ const StyledInput = styled(Input)`
   & .MuiInputBase-input {
     padding: 0;
   }
+
+  @media (max-width: 576px) {
+    padding: 12px 16px;
+  }
 `;
 
 export default StyledInput;

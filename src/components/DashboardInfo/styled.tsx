@@ -5,16 +5,36 @@ import { Link } from 'react-router-dom';
 export const Wrapper = styled.div``;
 
 export const InfoBlock = styled.div`
-  margin-top: 20px;
   padding: 20px;
   border-radius: 12px;
   background-color: ${COLORS.MIDDLE_GRAY};
+  @media (max-width: 1200px) {
+    max-width: 313px;
+    padding: 15px;
+  }
+
+  @media (max-width: 992px) {
+    padding: 20px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 15px;
+  }
 `;
 
 export const Title = styled.h3`
   font-size: ${SIZES.FONT.BIG};
   line-height: ${SIZES.LINE_HEIGHT.LH20};
   margin-bottom: 40px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 576px) {
+    font-size: ${SIZES.FONT.REGULAR};
+    line-height: ${SIZES.LINE_HEIGHT.LH18};
+  }
 `;
 
 export const Instructions = styled.div`
@@ -45,6 +65,14 @@ export const Circle = styled.div`
   color: ${COLORS.BLACK};
   font-size: ${SIZES.FONT.BIG};
   background-color: ${COLORS.WHITE};
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  @media (max-width: 576px) {
+    display: flex;
+  }
 `;
 
 export const Highlight = styled.span`
@@ -68,6 +96,10 @@ export const QuoteBlock = styled.div`
   background-color: ${COLORS.MIDDLE_GRAY};
   margin-top: 12px;
   padding: 15px 20px 14px;
+
+  @media (max-width: 992px) {
+    display: none;
+  }
 `;
 
 export const Icon = styled.p`

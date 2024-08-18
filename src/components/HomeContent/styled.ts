@@ -1,9 +1,15 @@
 import styled from '@emotion/styled';
 import { SIZES } from '../../styles/theme';
 
+export const Wrapper = styled.div`
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+`;
+
 export const Title = styled.h2`
-  font-size: ${ SIZES.FONT.EXTRA_BIG };
-  line-height: ${ SIZES.LINE_HEIGHT.LH32 };
+  font-size: ${SIZES.FONT.EXTRA_BIG};
+  line-height: ${SIZES.LINE_HEIGHT.LH32};
   margin-bottom: 28px;
 `;
 
@@ -13,8 +19,10 @@ export const Header = styled.div`
 `;
 
 export const SpinnerWrapper = styled.div`
-  margin-top: 200px;
-  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 export const TextWrapper = styled.div`
@@ -23,4 +31,5 @@ export const TextWrapper = styled.div`
 
 export const Text = styled.h3`
   text-align: center;
+  vertical-align: middle;
 `;

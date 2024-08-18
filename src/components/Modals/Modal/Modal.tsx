@@ -5,9 +5,9 @@ import svg from '../../../assets/sprite.svg';
 import { ModalProps } from './types';
 
 const Modal: FC<ModalProps> = ({
-  currentBook,
   setIsShowModal,
   isShowModal,
+  currentBook,
   children: button,
 }) => {
   return (

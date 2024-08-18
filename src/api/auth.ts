@@ -1,5 +1,13 @@
-import { IUserInfo} from '../types/data';
+import { IUserInfo } from '../types/data';
 import { instance } from './helpers/instance';
+
+export const setAuthHeader = (token: string) => {
+  instance.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
+
+const clearAuthHeader = () => {
+  instance.defaults.headers.common.Authorization = '';
+};
 
 export const registerUser = async (userInfo: IUserInfo) => {
   const { data } = await instance.post('users/signup', userInfo);
@@ -22,12 +30,4 @@ export const refreshToken = async () => {
   const newToken = data.token;
   setAuthHeader(newToken);
   return data;
-};
-
-export const setAuthHeader = (token: string) => {
-  instance.defaults.headers.common.Authorization = `Bearer ${token}`;
-};
-
-const clearAuthHeader = () => {
-  instance.defaults.headers.common.Authorization = '';
 };

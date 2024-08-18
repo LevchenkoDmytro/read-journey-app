@@ -1,15 +1,41 @@
-import { IBookObj } from '../../types/data';
-
 export interface IState {
-  items: IBookObj[];
+  recommendedBooks: IBook[];
+  libraryBooks: IBook[];
+  bookInfo: IBookInfo | null;
+  readingStatus: string;
   totalPages: number;
   isLoading: boolean;
   error: string;
-  libraryBooks: IBookObj[];
 }
 
-export interface getRecommendedBooksParams {
+export interface IBook {
+  imageUrl: string;
+  title: string;
+  author: string;
+  recommend: boolean;
+  totalPages: number;
+  _id: string;
+}
+
+export interface IBookInfo extends IBook {
+  owner: string;
+  progress: [];
+  status: string;
+  timeLeftToRead: {
+    hours: number;
+    minutes: number;
+    seconds: number;
+  };
+}
+
+export interface IgetRecommendedBooksParams {
   currentPage: number;
   author: string;
   title: string;
+  imageCount: number;
+}
+
+export interface IstartReadingBookParams {
+  id: string | undefined;
+  page: number | null;
 }

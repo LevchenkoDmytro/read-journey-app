@@ -1,1 +1,1 @@
-export { default } from './Reading'
+export { default } from './Reading';

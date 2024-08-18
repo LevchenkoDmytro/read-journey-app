@@ -12,18 +12,16 @@ const HeaderMainSection: FC<IHeaderMainSectionProps> = ({
 
   const isShowPagination = totalPages > 1;
   return (
-    <>
-      <Wrapper>
-        <Title>Recommended</Title>
-        {isShowPagination && (
-          <Pagination
-            totalPages={totalPages}
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-          />
-        )}
-      </Wrapper>
-    </>
+    <Wrapper>
+      <Title>Recommended</Title>
+      {isShowPagination && (
+        <Pagination
+          totalPages={totalPages}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
+      )}
+    </Wrapper>
   );
 };
 
