@@ -31,6 +31,10 @@ const SigninForm = () => {
     watch,
   } = useForm<IUserInfo>({
     mode: 'onChange',
+    defaultValues: {
+      email: 'lion2010@i.ua',
+      password: '1234567',
+    },
   });
 
   const submit = (userInfo: IUserInfo) => {

@@ -8,13 +8,13 @@ export const handlerError = (
   rejectWithValue: RejectWithValue,
 ) => {
   if (axios.isAxiosError(error)) {
-    if (error.response?.status === 409) {
-      Notiflix.Notify.failure(error.response?.data.message, {
+    if (error.response?.status === 500) {
+      Notiflix.Notify.failure('Server error', {
         timeout: 6000,
       });
       return rejectWithValue(error.response?.data.message);
     }
-    Notiflix.Notify.failure('Oops something went wrong', {
+    Notiflix.Notify.failure(error.response?.data.message, {
       timeout: 6000,
     });
     return rejectWithValue('Oops something went wrong');

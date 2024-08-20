@@ -21,6 +21,8 @@ export const handlerLoginFulfilled = (
   state: IState,
   { payload }: PayloadAction<any>,
 ) => {
+  console.log(payload);
+
   state.token = payload.token;
   state.refreshToken = payload.refreshToken;
   state.name = payload.name;
