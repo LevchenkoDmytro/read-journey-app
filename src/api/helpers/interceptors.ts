@@ -32,23 +32,23 @@ const setUpInterceptors = (store: {
     async error => {
       const originalRequest = error.config;
 
-      // if (error.response.status === 401 && !originalRequest._retry) {
-      //   originalRequest._retry = true;
+      if (error.response.status === 401 && !originalRequest._retry) {
+        originalRequest._retry = true;
 
-      //   try {
-      //     await store.dispatch(refreshTokenThunk());
-      //     const state = store.getState();
-      //     const newAccessToken = state.auth.token;
+        try {
+          await store.dispatch(refreshTokenThunk());
+          const state = store.getState();
+          const newAccessToken = state.auth.token;
 
-      //     if (newAccessToken) {
-      //       originalRequest.headers['Authorization'] =
-      //         `Bearer ${newAccessToken}`;
-      //       return instance(originalRequest);
-      //     }
-      //   } catch (refreshError) {
-      //     console.error('Error refreshing token:', refreshError);
-      //   }
-      // }
+          if (newAccessToken) {
+            originalRequest.headers['Authorization'] =
+              `Bearer ${newAccessToken}`;
+            return instance(originalRequest);
+          }
+        } catch (refreshError) {
+          console.error('Error refreshing token:', refreshError);
+        }
+      }
 
       return Promise.reject(error);
     },
