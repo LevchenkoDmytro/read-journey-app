@@ -18,12 +18,14 @@ export const Wrapper = styled.div`
   @media (max-width: 992px) {
     display: flex;
     width: 704px;
+    flex-direction: row;
     height: 336px;
     padding: 32px 16px 16px 32px;
     column-gap: 32px;
   }
 
   @media (max-width: 768px) {
+    align-items: center;
     justify-content: space-around;
     align-items: center;
     max-width: 100%;

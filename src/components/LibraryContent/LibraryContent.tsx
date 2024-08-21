@@ -53,7 +53,6 @@ const LibraryContent: FC<LibraryContentProps> = ({ currentPage }) => {
     setBooks(getPageBooks(currentPage));
 
     window.addEventListener('resize', handleResize);
-    console.log(booksPerPage);
 
     return () => {
       window.removeEventListener('resize', handleResize);

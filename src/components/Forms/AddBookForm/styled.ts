@@ -8,7 +8,7 @@ export const Form = styled.form`
   max-width: 356px;
   @media (max-width: 992px) {
     margin-bottom: 0px;
-    max-width: 50%;
+    /* max-width: 50%; */
   }
 
   @media (max-width: 576px) {
